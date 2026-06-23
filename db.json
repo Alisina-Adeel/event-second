@@ -1,0 +1,103 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "title": "React Summit",
+      "category": "Technology",
+      "price": 99,
+      "date": "2026-07-10T10:00:00Z",
+      "location": "Toronto",
+      "status": "upcoming"
+    },
+    {
+      "id": "2",
+      "title": "Music Festival",
+      "category": "Music",
+      "price": 49,
+      "date": "2026-05-15T18:00:00Z",
+      "location": "Vancouver",
+      "status": "past"
+    },
+    {
+      "id": "3",
+      "title": "Startup Expo",
+      "category": "Business",
+      "price": 149,
+      "date": "2026-09-01T09:00:00Z",
+      "location": "Montreal",
+      "status": "upcoming"
+    },
+    {
+      "id": "4",
+      "title": "Design Conference",
+      "category": "Technology",
+      "price": 120,
+      "date": "2026-06-30T11:00:00Z",
+      "location": "Toronto",
+      "status": "upcoming"
+    },
+    {
+      "id": "5",
+      "title": "Food Expo",
+      "category": "Food",
+      "price": 60,
+      "date": "2026-04-20T12:00:00Z",
+      "location": "Calgary",
+      "status": "past"
+    },
+    {
+      "id": "6",
+      "title": "AI Conference",
+      "category": "Technology",
+      "price": 199,
+      "date": "2026-08-15T09:30:00Z",
+      "location": "Toronto",
+      "status": "upcoming"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1",
+      "eventId": "1",
+      "eventTitle": "React Summit",
+      "eventDate": "2026-07-10",
+      "ticketType": "General",
+      "quantity": 2,
+      "totalAmount": 198,
+      "status": "Upcoming"
+    },
+    {
+      "id": "2",
+      "eventId": "2",
+      "eventTitle": "Music Festival",
+      "eventDate": "2026-05-15",
+      "ticketType": "VIP",
+      "quantity": 1,
+      "totalAmount": 49,
+      "status": "Past"
+    },
+    {
+      "eventId": "1",
+      "eventTitle": "Event Booking",
+      "ticketType": "VIP",
+      "quantity": 1,
+      "name": "",
+      "email": "",
+      "totalAmount": 99,
+      "status": "Upcoming",
+      "id": "R4PFkVjr86E"
+    },
+    {
+      "eventId": "2",
+      "eventTitle": "Event Booking",
+      "ticketType": "General",
+      "quantity": 1,
+      "name": "cczc",
+      "email": "",
+      "totalAmount": 49,
+      "status": "Upcoming",
+      "id": "fgJXvW95kZA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
