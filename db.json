@@ -97,6 +97,54 @@
       "totalAmount": 49,
       "status": "Upcoming",
       "id": "fgJXvW95kZA"
+    },
+    {
+      "eventId": "2",
+      "eventTitle": "Event Booking",
+      "eventDate": "2026-06-23",
+      "ticketType": "",
+      "quantity": 1,
+      "name": "",
+      "email": "",
+      "totalAmount": 49,
+      "status": "Upcoming",
+      "id": "1miuCKDJRcc"
+    },
+    {
+      "eventId": "1",
+      "eventTitle": "Event Booking",
+      "eventDate": "2026-06-23",
+      "ticketType": "",
+      "quantity": 1,
+      "name": "",
+      "email": "",
+      "totalAmount": 99,
+      "status": "Upcoming",
+      "id": "LdH54kJ-__0"
+    },
+    {
+      "eventId": "2",
+      "eventTitle": "Event Booking",
+      "eventDate": "2026-06-23",
+      "ticketType": "",
+      "quantity": 1,
+      "name": "",
+      "email": "",
+      "totalAmount": 49,
+      "status": "Upcoming",
+      "id": "rYjtFukG7sw"
+    },
+    {
+      "eventId": "2",
+      "eventTitle": "Event Booking",
+      "eventDate": "2026-06-23",
+      "ticketType": "VIP",
+      "quantity": 1,
+      "name": "",
+      "email": "",
+      "totalAmount": 49,
+      "status": "Upcoming",
+      "id": "wx7VkU0h5Og"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

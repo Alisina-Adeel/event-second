@@ -1,22 +1,21 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { cancelBooking } from "../api/bookingsApi";
+import { cancelBooking } from "./bookingsApi";
 
-export function useCancelBooking(userId: string, status?: string) {
+export function useCancelBooking(userId?: string, status?: string) {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: cancelBooking,
 
-    // 🔥 optimistic update
     onMutate: async (bookingId: string) => {
       await queryClient.cancelQueries({
-        queryKey: ["bookings", userId, status]
+        queryKey: ["bookings", userId, status],
       });
 
-      const prev = queryClient.getQueryData([
+      const previous = queryClient.getQueryData([
         "bookings",
         userId,
-        status
+        status,
       ]);
 
       queryClient.setQueryData(
@@ -24,26 +23,25 @@ export function useCancelBooking(userId: string, status?: string) {
         (old: any) =>
           old?.map((b: any) =>
             b.id === bookingId
-              ? { ...b, status: "cancelled" }
+              ? { ...b, status: "Cancelled" }
               : b
           )
       );
 
-      return { prev };
+      return { previous };
     },
 
-    // rollback on error
     onError: (_err, _id, context) => {
       queryClient.setQueryData(
         ["bookings", userId, status],
-        context?.prev
+        context?.previous
       );
     },
 
     onSettled: () => {
       queryClient.invalidateQueries({
-        queryKey: ["bookings", userId, status]
+        queryKey: ["bookings", userId, status],
       });
-    }
+    },
   });
 }

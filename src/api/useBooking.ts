@@ -1,16 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-import { getBookings } from "../api/bookingsApi";
+import { getBookings } from "./bookingsApi";
 
-export function useBookings(userId: string, status?: string) {
+export function useBookings(userId?: string, status?: string) {
   return useQuery({
     queryKey: ["bookings", userId, status],
 
-    queryFn: () => getBookings(userId, status),
+    queryFn: () =>
+      getBookings(
+        userId,
+        status ? status : undefined
+      ),
 
-    // 🔥 important performance settings
-    staleTime: 1000 * 60 * 2, // 2 min fresh
-    gcTime: 1000 * 60 * 10,   // 10 min cache
+    staleTime: 1000 * 60 * 2,
+    gcTime: 1000 * 60 * 10,
 
-    enabled: !!userId // conditional query
+    enabled: !!userId,
   });
 }

@@ -70,18 +70,19 @@ export default function BookPage() {
     },
   });
 
-  const handleBooking = () => {
-    mutation.mutate({
-      eventId,
-      eventTitle: "Event Booking",
-      ticketType: state.ticketType,
-      quantity: state.quantity,
-      name: state.name,
-      email: state.email,
-      totalAmount: total,
-      status: "Upcoming",
-    });
-  };
+const handleBooking = () => {
+  mutation.mutate({
+    eventId,
+    eventTitle: "Event Booking",
+    eventDate: new Date().toISOString().split("T")[0], // ✅ FIX
+    ticketType: state.ticketType,
+    quantity: state.quantity,
+    name: state.name,
+    email: state.email,
+    totalAmount: total,
+    status: "Upcoming",
+  });
+};
 
   return (
     <div style={styles.page}>
@@ -277,6 +278,7 @@ const styles: any = {
     display: "flex",
     gap: 10,
     justifyContent: "space-between",
+    
   },
 
   primaryBtn: {

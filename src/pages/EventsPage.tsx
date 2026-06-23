@@ -1,13 +1,14 @@
 import { useState, useDeferredValue } from "react";
-import { useEvents } from "../components/hooks/useEvents";
-import EventCard from "../components/EventCard";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import { useEvents } from "../hooks/useEvents";
+import EventCard from "../components/EventCard";
 
 function EventsPage() {
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
+  // ✅ FIX: REAL DATA SOURCE
   const { data: events = [], isLoading, isError } = useEvents();
 
   const [search] = useState("");
@@ -54,50 +55,50 @@ function EventsPage() {
   if (isError) return <h2>Error loading events</h2>;
 
   const safeTheme = theme ?? "light";
-const styles = getStyles(safeTheme);
+  const styles = getStyles(safeTheme);
 
-return (
-  <div style={styles.page}>
-    <div style={styles.header}>
-      <h1>🎟 Events</h1>
+  return (
+    <div style={styles.page}>
+      <div>
+        <h1>🎟 Events</h1>
 
-      <div style={styles.headerRight}>
-        <button
-          onClick={() => navigate("/my-bookings")}
-          style={styles.bookingsBtn}
-        >
-          🎫 My Bookings
-        </button>
+        <div style={styles.headerRight}>
+          <button
+            onClick={() => navigate("/my-bookings")}
+            style={styles.bookingsBtn}
+          >
+            🎫 My Bookings
+          </button>
 
-        <button onClick={toggleTheme} style={styles.themeBtn}>
-          {safeTheme === "dark" ? "🌞 Light Mode" : "🌙 Dark Mode"}
-        </button>
+          <button onClick={toggleTheme} style={styles.themeBtn}>
+            {safeTheme === "dark" ? "🌞 Light Mode" : "🌙 Dark Mode"}
+          </button>
+        </div>
       </div>
-    </div>
 
-    {/* FILTER ROW (YOUR CODE FIXED) */}
-    <div style={styles.row}>
-      <select
-        style={styles.input}
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      >
-        <option value="All">All</option>
-        <option value="Technology">Technology</option>
-        <option value="Music">Music</option>
-        <option value="Business">Business</option>
-      </select>
+      {/* FILTER ROW */}
+      <div>
+        <select
+          style={styles.input}
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="All">All</option>
+          <option value="Technology">Technology</option>
+          <option value="Music">Music</option>
+          <option value="Business">Business</option>
+        </select>
 
-      <select
-        style={styles.input}
-        value={sortBy}
-        onChange={(e) => setSortBy(e.target.value)}
-      >
-        <option value="">Sort</option>
-        <option value="priceLow">Price Low → High</option>
-        <option value="priceHigh">Price High → Low</option>
-      </select>
-    </div>
+        <select
+          style={styles.input}
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+        >
+          <option value="">Sort</option>
+          <option value="priceLow">Price Low → High</option>
+          <option value="priceHigh">Price High → Low</option>
+        </select>
+      </div>
 
       {/* GRID */}
       <div style={styles.grid}>
@@ -151,13 +152,7 @@ function getStyles(theme: "light" | "dark") {
       marginTop: 20,
     },
 
-    row: {
-      display: "flex",
-      gap: 10,
-      marginTop: 10,
-      marginBottom: 10,
-      flexWrap: "wrap",
-    },
+   
 
     input: {
       padding: 10,
@@ -166,16 +161,6 @@ function getStyles(theme: "light" | "dark") {
       background: isDark ? "#1e293b" : "#fff",
       color: isDark ? "#fff" : "#000",
       flex: 1,
-    },
-
-    primaryBtn: {
-      padding: "10px 14px",
-      borderRadius: 8,
-      border: "none",
-      background: "#6366f1",
-      color: "white",
-      cursor: "pointer",
-      marginBottom: 10,
     },
 
     themeBtn: {
@@ -196,7 +181,6 @@ function getStyles(theme: "light" | "dark") {
       background: "linear-gradient(135deg,#6366f1,#4f46e5)",
       color: "white",
       boxShadow: "0 6px 18px rgba(99,102,241,0.35)",
-      transition: "0.2s",
     },
-  };
+};
 }

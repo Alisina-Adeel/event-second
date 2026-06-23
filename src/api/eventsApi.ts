@@ -1,16 +1,5 @@
 import { api } from "../services/api";
 
-export type EventInput = {
-  title: string;
-  description: string;
-  category: string;
-  imageUrl?: string;
-  date?: string;
-  time?: string;
-  location?: string;
-  tickets?: any[];
-};
-
 export const getEvents = async () => {
   const res = await api.get("/events");
   return res.data;
@@ -21,7 +10,12 @@ export const getEventById = async (id: string) => {
   return res.data;
 };
 
-export const publishEvent = async (data: EventInput) => {
-  const res = await api.post("/events", data);
+export const getEventReviews = async (id: string) => {
+  const res = await api.get(`/events/${id}/reviews`);
+  return res.data || [];
+};
+
+export const publishEvent = async (eventData: any) => {
+  const res = await api.post("/events", eventData);
   return res.data;
 };

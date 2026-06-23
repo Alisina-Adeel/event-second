@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useBookings } from "../hooks/useBookings";
-import { useCancelBooking } from "../hooks/useCancelBooking";
+import { useCancelBooking } from "../api/useCancelBooking";
 
 export default function MyBookingsPage() {
   const userId = "user1";
@@ -106,6 +106,7 @@ const styles: any = {
     borderRadius: 12,
     marginBottom: 12,
     background: "#fff",
+    
   },
 
   cancelBtn: {
