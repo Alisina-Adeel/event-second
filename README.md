@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# 🎟 Event Booking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **React + TypeScript Event Booking Platform** that allows users to browse events, book tickets, and manage bookings with a smooth multi-step booking flow.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- 🎫 Browse events from API (JSON Server)
+- 🔍 Search, filter, and sort events
+- ❤️ Favorite events system
+- 📄 Event details page
+- 🧾 Multi-step booking flow
+- 📊 My Bookings page (Upcoming / Past / Cancelled tabs)
+- ❌ Cancel bookings with optimistic UI updates
+- 🎨 Light / Dark theme support
+- ⚡ React Query caching for performance
+- 🧠 Redux Toolkit for event creation form state
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React + TypeScript + Vite
+- React Router DOM
+- React Query (@tanstack/react-query)
+- Redux Toolkit
+- Axios
+- JSON Server (mock backend)
+- Inline CSS styling
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📁 Project Structure
+src/
+│
+├── api/ # API calls (events & bookings)
+├── components/
+│ ├── EventCard.tsx
+│ └── hooks/
+│ ├── useEvents.ts
+│ ├── useBookings.ts
+│ └── useCancelBooking.ts
+│
+├── context/
+│ └── ThemeContext.tsx
+│
+├── pages/
+│ ├── EventsPage.tsx
+│ ├── EventDetailsPage.tsx
+│ ├── BookPage.tsx
+│ ├── MyBookingsPage.tsx
+│ └── CreateEventPage.tsx
+│
+├── store/
+│ ├── store.ts
+│ └── createEventSlice.ts
+│
+├── routes/
+│ └── router.tsx
+│
+├── main.tsx
