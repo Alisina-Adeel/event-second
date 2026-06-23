@@ -32,31 +32,34 @@ A modern **React + TypeScript Event Booking Platform** that allows users to brow
 ---
 
 ## 📁 Project Structure
-src/
+src# 📁 Project Structure
+
+/
 │
-├── api/ # API calls (events & bookings)
+├── api/                     # API calls (events & bookings)
+│
 ├── components/
-│ ├── EventCard.tsx
-│ └── hooks/
-│ ├── useEvents.ts
-│ ├── useBookings.ts
-│ └── useCancelBooking.ts
+│   ├── EventCard.tsx
+│   └── hooks/
+│       ├── useEvents.ts
+│       ├── useBookings.ts
+│       └── useCancelBooking.ts
 │
 ├── context/
-│ └── ThemeContext.tsx
+│   └── ThemeContext.tsx
 │
 ├── pages/
-│ ├── EventsPage.tsx
-│ ├── EventDetailsPage.tsx
-│ ├── BookPage.tsx
-│ ├── MyBookingsPage.tsx
-│ └── CreateEventPage.tsx
+│   ├── EventsPage.tsx
+│   ├── EventDetailsPage.tsx
+│   ├── BookPage.tsx
+│   ├── MyBookingsPage.tsx
+│   └── CreateEventPage.tsx
 │
 ├── store/
-│ ├── store.ts
-│ └── createEventSlice.ts
+│   ├── store.ts
+│   └── createEventSlice.ts
 │
 ├── routes/
-│ └── router.tsx
+│   └── router.tsx
 │
 ├── main.tsx
