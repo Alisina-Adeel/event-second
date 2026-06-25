@@ -32,6 +32,8 @@ A modern **React + TypeScript Event Booking Platform** that allows users to brow
 ---
 
 ## 📁 Project Structure
+
+```text
 src/
 │
 ├── api/
