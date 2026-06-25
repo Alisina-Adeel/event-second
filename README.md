@@ -32,21 +32,24 @@ A modern **React + TypeScript Event Booking Platform** that allows users to brow
 ---
 
 ## 📁 Project Structure
-src# 📁 Project Structure
-
-/
+src/
 │
-├── api/                     # API calls (events & bookings)
+├── api/
+│   ├── bookingsApi.ts
+│   ├── eventsApi.ts
+│   ├── useBooking.ts
+│   └── useCancelBooking.ts
 │
 ├── components/
-│   ├── EventCard.tsx
-│   └── hooks/
-│       ├── useEvents.ts
-│       ├── useBookings.ts
-│       └── useCancelBooking.ts
+│   └── EventCard.tsx
 │
 ├── context/
 │   └── ThemeContext.tsx
+│
+├── hooks/
+│   ├── useEvents.ts
+│   ├── useBookings.ts
+│   └── (other hooks)
 │
 ├── pages/
 │   ├── EventsPage.tsx
@@ -62,4 +65,34 @@ src# 📁 Project Structure
 ├── routes/
 │   └── router.tsx
 │
-├── main.tsx
+├── types/
+│   └── event.ts
+│
+└── main.tsx
+
+
+🚀 Project Setup Instructions
+1️⃣ Start the Backend (JSON Server)
+
+Open a terminal and run:
+
+Bash:
+npx json-server --watch db.json --port 3001
+
+👉 Backend API will run at:
+
+http://localhost:3001
+2️⃣ Start the Frontend (React App)
+
+Open another terminal and run:
+
+Bash:
+npm run dev
+
+👉 Frontend will start at:
+
+http://localhost:5173
+⚠️ Important Notes
+The backend (JSON Server) must be running before starting the frontend.
+If the backend is not running, events and bookings will not load.
+Make sure both terminals are running simultaneously.
